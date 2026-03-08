@@ -195,29 +195,20 @@
         /* Profile Section */
         .profile-banner {
             height: 200px;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #0f0f0f 100%);
+            background-image: url('/mnt/kimi/upload/hero-bg-D0XRb9h7.jpg');
+            background-size: cover;
+            background-position: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .circuit-pattern {
+        .profile-banner::after {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        .circuit-lines {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(45deg, transparent 48%, rgba(0, 255, 65, 0.1) 49%, rgba(0, 255, 65, 0.1) 51%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(0, 255, 65, 0.1) 49%, rgba(0, 255, 65, 0.1) 51%, transparent 52%);
-            background-size: 100px 100px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
         }
 
         .profile-info {
@@ -231,6 +222,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            position: relative;
+            z-index: 10;
         }
 
         .profile-avatar {
@@ -882,10 +875,7 @@
 
             <!-- Profile Section -->
             <section class="profile-section">
-                <div class="profile-banner">
-                    <div class="circuit-pattern"></div>
-                    <div class="circuit-lines"></div>
-                </div>
+                <div class="profile-banner"></div>
                 
                 <div class="profile-info">
                     <div class="profile-avatar-container">
