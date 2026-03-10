@@ -158,7 +158,7 @@ document.getElementById('contactModal').addEventListener('click', function(e) {
     if (e.target === this) closeContactModal();
 });
 
-// Send email via mailto
+// Send email via EmailJS
 function sendContactEmail() {
     const name = document.getElementById('contactName').value.trim();
     const subject = document.getElementById('contactSubject').value.trim();
@@ -169,8 +169,31 @@ function sendContactEmail() {
         return;
     }
 
-    const body = `Name: ${name}\n\n${message}`;
-    const mailtoLink = `mailto:katlegoseiphemo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    closeContactModal();
+    const sendBtn = document.querySelector('.modal-send');
+    sendBtn.textContent = 'Sending...';
+    sendBtn.disabled = true;
+
+    emailjs.send('service_l1wnisx', 'template_o1j0sqk', {
+        from_name: name,
+        subject: subject,
+        message: message,
+        to_email: 'katlegoseiphemo@gmail.com'
+    }).then(function() {
+        sendBtn.textContent = '✅ Message Sent!';
+        setTimeout(() => {
+            closeContactModal();
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactSubject').value = '';
+            document.getElementById('contactMessage').value = '';
+            sendBtn.textContent = '✉️ Send Message';
+            sendBtn.disabled = false;
+        }, 1500);
+    }).catch(function(error) {
+        console.error('EmailJS error:', error);
+        sendBtn.textContent = '❌ Failed. Try again.';
+        sendBtn.disabled = false;
+    });
 }
+
+// Initialize EmailJS
+emailjs.init("5oGF5Od0T-z8OE2ow");
