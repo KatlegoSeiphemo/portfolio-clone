@@ -197,7 +197,7 @@ a.nav-item {
 /* Profile Section */
 .profile-banner {
     height: 200px;
-    background-image: url('hero-bg-D0XRb9h7.jpg');
+    background-image: url('/mnt/kimi/upload/hero-bg-D0XRb9h7.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1149,4 +1149,75 @@ a.nav-item {
     font-size: 14px;
     font-weight: 600;
     transition: background 0.2s, border-color 0.2s;
+}
+
+.about-link-btn:hover {
+    background: rgba(239, 243, 244, 0.1);
+    border-color: var(--text-secondary);
+}
+
+/* ===== DARK/LIGHT MODE ===== */
+body.light-mode {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f9f9;
+    --bg-tertiary: #eff3f4;
+    --text-primary: #0f1419;
+    --text-secondary: #536471;
+    --border-color: #cfd9de;
+}
+
+body.light-mode .header {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+body.light-mode .profile-banner::after {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+}
+
+/* ===== HEADER RIGHT (theme + counter) ===== */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+    background: rgba(239, 243, 244, 0.1);
+}
+
+body.light-mode .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.visitor-counter i {
+    color: var(--accent-blue);
+    font-size: 14px;
 }
