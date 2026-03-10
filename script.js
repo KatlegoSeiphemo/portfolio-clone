@@ -174,9 +174,11 @@ function sendContactEmail() {
     sendBtn.disabled = true;
 
     emailjs.send('service_l1wnisx', 'template_o1j0sqk', {
+        name: name,
         from_name: name,
         subject: subject,
         message: message,
+        time: new Date().toLocaleString(),
         to_email: 'katlegoseiphemo@gmail.com'
     }).then(function() {
         sendBtn.textContent = '✅ Message Sent!';
