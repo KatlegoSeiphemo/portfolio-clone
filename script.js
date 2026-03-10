@@ -1,6 +1,10 @@
 // ===== GLOBAL FUNCTIONS (called from HTML onclick) =====
 
 function switchTab(tabElement, sectionId) {
+    // Update mobile nav active state
+    document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+    const mobileIndex = ['posts','skills','projects','certifications'].indexOf(sectionId);
+    if (mobileIndex >= 0) document.querySelectorAll('.mobile-nav-item')[mobileIndex].classList.add('active');
     document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
     tabElement.classList.add('active');
     document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
