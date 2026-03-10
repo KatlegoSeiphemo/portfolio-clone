@@ -1029,3 +1029,124 @@ a.nav-item {
         height: 150px;
     }
 }
+
+/* ===== ABOUT ME MODAL ===== */
+.about-modal {
+    max-width: 580px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-modal-body {
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-hero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--bg-tertiary);
+    border-radius: 16px;
+}
+
+.about-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.about-hero-info h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.about-hero-info p {
+    color: var(--accent-blue);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.about-hero-info span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.about-section h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+}
+
+.about-section h4 i {
+    color: var(--accent-blue);
+}
+
+.about-section p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.about-section p strong {
+    color: var(--text-primary);
+}
+
+.about-exp-item {
+    padding: 12px;
+    border-left: 2px solid var(--accent-blue);
+    margin-bottom: 12px;
+    padding-left: 14px;
+}
+
+.about-exp-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.about-exp-date {
+    font-size: 12px;
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+}
+
+.about-exp-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.about-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.about-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
+}
