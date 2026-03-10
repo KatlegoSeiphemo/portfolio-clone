@@ -170,31 +170,37 @@ function sendContactEmail() {
     }
 
     const sendBtn = document.querySelector('.modal-send');
-    sendBtn.textContent = 'Sending...';
+    sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     sendBtn.disabled = true;
 
-    emailjs.send('service_l1wnisx', 'template_o1j0sqk', {
+    const templateParams = {
         name: name,
         from_name: name,
         subject: subject,
         message: message,
-        time: new Date().toLocaleString(),
-        to_email: 'katlegoseiphemo@gmail.com'
-    }).then(function() {
-        sendBtn.textContent = '✅ Message Sent!';
-        setTimeout(() => {
-            closeContactModal();
-            document.getElementById('contactName').value = '';
-            document.getElementById('contactSubject').value = '';
-            document.getElementById('contactMessage').value = '';
-            sendBtn.textContent = '✉️ Send Message';
+        time: new Date().toLocaleString()
+    };
+
+    console.log('Sending with params:', templateParams);
+
+    emailjs.send('service_l1wnisx', 'template_o1j0sqk', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS', response.status, response.text);
+            sendBtn.innerHTML = '✅ Message Sent!';
+            setTimeout(() => {
+                closeContactModal();
+                document.getElementById('contactName').value = '';
+                document.getElementById('contactSubject').value = '';
+                document.getElementById('contactMessage').value = '';
+                sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                sendBtn.disabled = false;
+            }, 1500);
+        }, function(error) {
+            console.log('FAILED', JSON.stringify(error));
+            alert('Failed: ' + JSON.stringify(error));
+            sendBtn.innerHTML = '❌ Failed. Try again.';
             sendBtn.disabled = false;
-        }, 1500);
-    }).catch(function(error) {
-        console.error('EmailJS error:', error);
-        sendBtn.textContent = '❌ Failed. Try again.';
-        sendBtn.disabled = false;
-    });
+        });
 }
 
 // Initialize EmailJS
