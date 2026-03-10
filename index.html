@@ -626,6 +626,34 @@
         </aside>
     </div>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-item active" onclick="switchTab(document.querySelectorAll('.tab')[0], 'posts')">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </div>
+        <div class="mobile-nav-item" onclick="switchTab(document.querySelectorAll('.tab')[1], 'skills')">
+            <i class="fa-solid fa-code"></i>
+            <span>Skills</span>
+        </div>
+        <div class="mobile-nav-item" onclick="switchTab(document.querySelectorAll('.tab')[2], 'projects')">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Projects</span>
+        </div>
+        <div class="mobile-nav-item" onclick="switchTab(document.querySelectorAll('.tab')[3], 'certifications')">
+            <i class="fa-solid fa-certificate"></i>
+            <span>Certs</span>
+        </div>
+        <div class="mobile-nav-item" onclick="openContactModal()">
+            <i class="fa-regular fa-envelope"></i>
+            <span>Contact</span>
+        </div>
+        <a href="katlego-cv.pdf" download class="mobile-nav-item">
+            <i class="fa-solid fa-download"></i>
+            <span>CV</span>
+        </a>
+    </nav>
+
     <!-- Contact Modal -->
     <div id="contactModal" class="modal-overlay">
         <div class="modal">
