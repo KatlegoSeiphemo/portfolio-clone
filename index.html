@@ -24,7 +24,7 @@
                     <i class="fa-regular fa-file-lines"></i>
                     <span>My CV</span>
                 </div>
-                <a href="/cdn-cgi/l/email-protection#80ebe1f4ece5e7eff3e5e9f0e8e5edefc0e7ede1e9ecaee3efed" class="nav-item">
+                <a href="#" onclick="openContactModal(); return false;" class="nav-item">
                     <i class="fa-regular fa-envelope"></i>
                     <span>Contact Me</span>
                 </a>
@@ -626,4 +626,35 @@
         </aside>
     </div>
 
-    <s
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Contact Me</h3>
+                <button class="modal-close" onclick="closeContactModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-field">
+                    <label>Name</label>
+                    <input type="text" id="contactName" placeholder="Your name">
+                </div>
+                <div class="modal-field">
+                    <label>Subject</label>
+                    <input type="text" id="contactSubject" placeholder="What is this about?">
+                </div>
+                <div class="modal-field">
+                    <label>Message</label>
+                    <textarea id="contactMessage" placeholder="Write your message..." rows="5"></textarea>
+                </div>
+                <button class="modal-send" onclick="sendContactEmail()">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
