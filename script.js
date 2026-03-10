@@ -19,6 +19,14 @@ function showTab(sectionId) {
     else if (sectionId === 'cv') { alert('CV Download would start here'); return; }
 }
 
+function openAboutModal() {
+    document.getElementById("aboutModal").classList.add("active");
+}
+
+function closeAboutModal() {
+    document.getElementById("aboutModal").classList.remove("active");
+}
+
 function openContactModal() {
     document.getElementById('contactModal').classList.add('active');
 }
@@ -70,7 +78,12 @@ function sendContactEmail() {
 // ===== DOM EVENT LISTENERS =====
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Close modal when clicking outside
+    // Close modals when clicking outside
+    document.getElementById('aboutModal').addEventListener('click', function(e) {
+        if (e.target === this) closeAboutModal();
+    });
+
+    // Close contact modal when clicking outside
     document.getElementById('contactModal').addEventListener('click', function(e) {
         if (e.target === this) closeContactModal();
     });
