@@ -197,7 +197,7 @@ a.nav-item {
 /* Profile Section */
 .profile-banner {
     height: 200px;
-    background-image: url('hero-bg-D0XRb9h7.jpg');
+    background-image: url('/mnt/kimi/upload/hero-bg-D0XRb9h7.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -933,4 +933,99 @@ a.nav-item {
 
 .modal-send:hover {
     background: #1a8cd8;
+}
+
+/* ===== MOBILE BOTTOM NAV ===== */
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    /* Add padding so content doesn't hide behind bottom nav */
+    .main-content {
+        padding-bottom: 70px;
+    }
+
+    /* Bottom navigation bar */
+    .mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        z-index: 200;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 8px;
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        flex: 1;
+        padding: 8px 4px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 10px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: color 0.2s, background 0.2s;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        color: var(--text-primary);
+        background: rgba(239, 243, 244, 0.08);
+    }
+
+    .mobile-nav-item i {
+        font-size: 20px;
+    }
+
+    .mobile-nav-item span {
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /* Fix profile banner on mobile */
+    .profile-banner {
+        height: 120px;
+    }
+
+    /* Fix profile avatar on mobile */
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-avatar-container {
+        margin-top: -45px;
+    }
+
+    /* Fix profile name size */
+    .profile-name {
+        font-size: 17px;
+    }
+
+    /* Fix tabs on mobile */
+    .tab {
+        font-size: 13px;
+        padding: 12px 8px;
+    }
+
+    /* Fix post text on mobile */
+    .post-text {
+        font-size: 14px;
+    }
+
+    /* Fix project cards on mobile */
+    .project-image {
+        height: 150px;
+    }
 }
