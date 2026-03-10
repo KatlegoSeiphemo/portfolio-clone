@@ -1,141 +1,665 @@
-// ===== GLOBAL FUNCTIONS (called from HTML onclick) =====
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katlego Seiphemo | Software Engineer & Cybersecurity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+            <div class="logo">
+                <i class="fa-brands fa-x-twitter"></i>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active" onclick="showTab('posts')">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" onclick="showTab('cv')">
+                    <i class="fa-regular fa-file-lines"></i>
+                    <span>My CV</span>
+                </div>
+                <a href="#" onclick="openContactModal(); return false;" class="nav-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Contact Me</span>
+                </a>
+                <a href="https://www.linkedin.com/in/katlego-seiphemo-819779328/" target="_blank" class="nav-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/KatlegoSeiphemo" target="_blank" class="nav-item">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="katlego-cv.pdf" download class="nav-item">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download CV</span>
+                </a>
+            </nav>
+            
+            <button class="hire-me-btn">
+                <span>Hire Me</span>
+            </button>
+            
+            <div class="user-profile">
+                <img src="IMG-20260310-WA0004.jpg" alt="Katlego" class="user-avatar">
+                <div class="user-info">
+                    <div class="user-name">Katlego Seiphemo</div>
+                    <div class="user-handle">@katlego_dev</div>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </aside>
 
-function switchTab(tabElement, sectionId) {
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    tabElement.classList.add('active');
-    document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-    if (sectionId === 'posts') document.querySelector('.nav-item').classList.add('active');
-}
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-top">
+                    <div class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div class="header-info">
+                        <h2>Katlego Seiphemo</h2>
+                        <span>15 posts</span>
+                    </div>
+                </div>
+            </header>
 
-function showTab(sectionId) {
-    const tabs = document.querySelectorAll('.tab');
-    if (sectionId === 'posts') switchTab(tabs[0], 'posts');
-    else if (sectionId === 'cv') { alert('CV Download would start here'); return; }
-}
+            <!-- Profile Section -->
+            <section class="profile-section">
+                <div class="profile-banner"></div>
+                
+                <div class="profile-info">
+                    <div class="profile-avatar-container">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Profile" class="profile-avatar">
+                        <div class="profile-actions">
+                            <button class="icon-btn">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                            <button class="follow-btn"Follow Me</button>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-name">
+                        Katlego Seiphemo
+                        <i class="fa-solid fa-circle-check verified-badge"></i>
+                    </div>
+                    <div class="profile-handle">@katlego_dev</div>
+                    
+                    <div class="profile-bio">
+                        Software Engineer | Full-Stack Developer | AI & Cloud | Cybersecurity Analyst<br>
+                        🛡️ Building secure, scalable applications. FNB App of the Year Top 10 🏆
+                    </div>
+                    
+                    <div class="profile-meta">
+                        <span><i class="fa-solid fa-location-dot"></i> Johannesburg, SA</span>
+                        <span><i class="fa-solid fa-link"></i> <a href="#">github.com/KatlegoSeiphemo</a></span>
+                        <span><i class="fa-regular fa-calendar"></i> Joined March 2025</span>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <span class="stat"><strong>12</strong> Certifications</span>
+                        <span class="stat"><strong>4</strong> Projects</span>
+                        <span class="stat"><strong>7+</strong> Tech Stacks</span>
+                    </div>
+                </div>
+            </section>
 
-function openContactModal() {
-    document.getElementById('contactModal').classList.add('active');
-}
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab(this, 'posts')">Posts</div>
+                <div class="tab" onclick="switchTab(this, 'skills')">Skills</div>
+                <div class="tab" onclick="switchTab(this, 'projects')">Projects</div>
+                <div class="tab" onclick="switchTab(this, 'certifications')">Certifications</div>
+            </div>
 
-function closeContactModal() {
-    document.getElementById('contactModal').classList.remove('active');
-}
+            <!-- Content Sections -->
 
-function sendContactEmail() {
-    const name = document.getElementById('contactName').value.trim();
-    const subject = document.getElementById('contactSubject').value.trim();
-    const message = document.getElementById('contactMessage').value.trim();
+            <!-- Posts Section -->
+            <div id="posts" class="content-section active">
+                <!-- Pinned Post 1 -->
+                <div class="pinned">
+                    <i class="fa-solid fa-thumbtack"></i>
+                    Pinned
+                </div>
+                <article class="post">
+                    <div class="post-header">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Avatar" class="post-avatar">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author">Katlego Seiphemo</span>
+                                <i class="fa-solid fa-circle-check post-verified"></i>
+                                <span class="post-handle">@katlego_dev</span>
+                                <span>·</span>
+                                <span class="post-date">now</span>
+                            </div>
+                            <div class="post-text">
+                                🚀 Excited to share — <a href="#">CareerNest</a> made it to the FNB App of the Year 2025 Top 10!<br><br>
+                                Built with Flutter, Node.js, PostgreSQL, Redis, AWS, and MoMo API.<br><br>
+                                A cross-platform career platform for mentorship, job discovery, and CV tools. 🎯<br><br>
+                                <a href="#">#Flutter</a> <a href="#">#AWS</a> <a href="#">#NodeJS</a> <a href="#">#CareerNest</a>
+                            </div>
+                            <img src="project-careernest.jpg" alt="CareerNest" class="post-image">
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>34</span>
+                                </div>
+                                <div class="post-action retweet">
+                                    <i class="fa-solid fa-retweet"></i>
+                                    <span>89</span>
+                                </div>
+                                <div class="post-action like">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>247</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span>12.4K</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-    if (!name || !subject || !message) {
-        alert('Please fill in all fields.');
-        return;
-    }
+                <!-- Post 2 -->
+                <article class="post">
+                    <div class="post-header">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Avatar" class="post-avatar">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author">Katlego Seiphemo</span>
+                                <i class="fa-solid fa-circle-check post-verified"></i>
+                                <span class="post-handle">@katlego_dev</span>
+                                <span>·</span>
+                                <span class="post-date">2h</span>
+                            </div>
+                            <div class="post-text">
+                                Just finished building an automated Supplier Invoice Ingest Pipeline 🦾<br><br>
+                                • n8n + PostgreSQL + Gmail OAuth2<br>
+                                • SHA-256 idempotency<br>
+                                • Row-wise validation (4 business rules)<br>
+                                • Automated HTML email alerts<br><br>
+                                Production-grade automation is beautiful. 🤖<br><br>
+                                <a href="#">#n8n</a> <a href="#">#Automation</a> <a href="#">#PostgreSQL</a>
+                            </div>
+                            <img src="project-pipeline.jpg" alt="Pipeline" class="post-image">
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>18</span>
+                                </div>
+                                <div class="post-action retweet">
+                                    <i class="fa-solid fa-retweet"></i>
+                                    <span>42</span>
+                                </div>
+                                <div class="post-action like">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>156</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span>8.2K</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-    const sendBtn = document.querySelector('.modal-send');
-    sendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-    sendBtn.disabled = true;
+                <!-- Post 3 -->
+                <article class="post">
+                    <div class="post-header">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Avatar" class="post-avatar">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author">Katlego Seiphemo</span>
+                                <i class="fa-solid fa-circle-check post-verified"></i>
+                                <span class="post-handle">@katlego_dev</span>
+                                <span>·</span>
+                                <span class="post-date">5h</span>
+                            </div>
+                            <div class="post-text">
+                                🛡️ Google Cybersecurity Professional Certificate ✅<br>
+                                🛡️ 7 Forage Security Simulations ✅<br>
+                                🛡️ TryHackMe Cyber Security 101 ✅<br><br>
+                                Security is not optional — it's foundational.<br><br>
+                                From NIST frameworks to OWASP Top 10, building secure systems is my baseline, not an afterthought.<br><br>
+                                <a href="#">#Cybersecurity</a> <a href="#">#OWASP</a> <a href="#">#InfoSec</a>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>28</span>
+                                </div>
+                                <div class="post-action retweet">
+                                    <i class="fa-solid fa-retweet"></i>
+                                    <span>67</span>
+                                </div>
+                                <div class="post-action like">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>312</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span>15.1K</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-    const templateParams = {
-        name: name,
-        from_name: name,
-        subject: subject,
-        message: message,
-        time: new Date().toLocaleString()
-    };
+                <!-- Post 4 -->
+                <article class="post">
+                    <div class="post-header">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Avatar" class="post-avatar">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author">Katlego Seiphemo</span>
+                                <i class="fa-solid fa-circle-check post-verified"></i>
+                                <span class="post-handle">@katlego_dev</span>
+                                <span>·</span>
+                                <span class="post-date">1d</span>
+                            </div>
+                            <div class="post-text">
+                                Currently studying Full Stack AI Engineering at ZAIO Institute 🧠<br><br>
+                                Focus areas:<br>
+                                • End-to-end AI app development<br>
+                                • ML fundamentals & ethical AI<br>
+                                • Scalable cloud deployments<br><br>
+                                Also finishing my Diploma in Software Engineering at WeThinkCode_ 💻<br><br>
+                                Never stop learning. The tech landscape moves too fast to stand still.<br><br>
+                                <a href="#">#AI</a> <a href="#">#MachineLearning</a> <a href="#">#WeThinkCode</a>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>22</span>
+                                </div>
+                                <div class="post-action retweet">
+                                    <i class="fa-solid fa-retweet"></i>
+                                    <span>55</span>
+                                </div>
+                                <div class="post-action like">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>198</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span>9.7K</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-    emailjs.send('service_l1wnisx', 'template_o1j0sqk', templateParams)
-        .then(function(response) {
-            sendBtn.innerHTML = '✅ Message Sent!';
-            setTimeout(() => {
-                closeContactModal();
-                document.getElementById('contactName').value = '';
-                document.getElementById('contactSubject').value = '';
-                document.getElementById('contactMessage').value = '';
-                sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
-                sendBtn.disabled = false;
-            }, 1500);
-        }, function(error) {
-            alert('Failed: ' + JSON.stringify(error));
-            sendBtn.innerHTML = '❌ Failed. Try again.';
-            sendBtn.disabled = false;
-        });
-}
+                <!-- Post 5 -->
+                <article class="post">
+                    <div class="post-header">
+                        <img src="IMG-20260310-WA0004.jpg" alt="Avatar" class="post-avatar">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-author">Katlego Seiphemo</span>
+                                <i class="fa-solid fa-circle-check post-verified"></i>
+                                <span class="post-handle">@katlego_dev</span>
+                                <span>·</span>
+                                <span class="post-date">2d</span>
+                            </div>
+                            <div class="post-text">
+                                Proud to mentor at <a href="#">Teens in AI Techathon</a> — and our team took 1st place! 🏅<br><br>
+                                Promoting responsible and ethical AI use among South African youth.<br><br>
+                                Also engaged with Africa's AI research community at AMLD Africa 2026 🌍<br><br>
+                                <a href="#">#TeensInAI</a> <a href="#">#AMLDfrica</a> <a href="#">#Community</a>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>45</span>
+                                </div>
+                                <div class="post-action retweet">
+                                    <i class="fa-solid fa-retweet"></i>
+                                    <span>112</span>
+                                </div>
+                                <div class="post-action like">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <span>421</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span>22.3K</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
 
-// ===== DOM EVENT LISTENERS =====
-document.addEventListener('DOMContentLoaded', function() {
+            <!-- Skills Section -->
+            <div id="skills" class="content-section">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-code"></i>
+                        Languages
+                    </div>
+                    <div class="skill-list">
+                        JavaScript • Python • Java • Dart • SQL • HTML5 • CSS3
+                    </div>
+                </div>
 
-    // Close modal when clicking outside
-    document.getElementById('contactModal').addEventListener('click', function(e) {
-        if (e.target === this) closeContactModal();
-    });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-bolt"></i>
+                        Frameworks
+                    </div>
+                    <div class="skill-list">
+                        React • Node.js • Express • Flutter • Spring Boot • Django • Flask • TailwindCSS
+                    </div>
+                </div>
 
-    // Post like interactions
-    document.querySelectorAll('.post-action').forEach(action => {
-        action.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (this.classList.contains('like')) {
-                const icon = this.querySelector('i');
-                const count = this.querySelector('span');
-                if (icon.classList.contains('fa-regular')) {
-                    icon.classList.replace('fa-regular', 'fa-solid');
-                    icon.style.color = '#f91880';
-                    if (count) { count.textContent = parseInt(count.textContent) + 1; count.style.color = '#f91880'; }
-                } else {
-                    icon.classList.replace('fa-solid', 'fa-regular');
-                    icon.style.color = '';
-                    if (count) { count.textContent = parseInt(count.textContent) - 1; count.style.color = ''; }
-                }
-            }
-        });
-    });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-database"></i>
+                        Databases
+                    </div>
+                    <div class="skill-list">
+                        PostgreSQL • MongoDB • Firebase • Redis • Supabase
+                    </div>
+                </div>
 
-    // Follow/Hire button toggle
-    document.querySelector('.follow-btn').addEventListener('click', function() {
-        if (this.textContent === 'Hire Me') {
-            this.textContent = 'Pending';
-            this.style.background = 'transparent';
-            this.style.color = 'white';
-            this.style.border = '1px solid var(--border-color)';
-        } else {
-            this.textContent = 'Hire Me';
-            this.style.background = 'white';
-            this.style.color = 'black';
-            this.style.border = 'none';
-        }
-    });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-cloud"></i>
+                        Cloud & DevOps
+                    </div>
+                    <div class="skill-list">
+                        AWS (EC2, S3, RDS) • Google Cloud • Docker • Git • GitHub • CI/CD • Linux
+                    </div>
+                </div>
 
-    // Search
-    document.querySelector('.search-input').addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        if (searchTerm.length > 0) console.log('Searching for:', searchTerm);
-    });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Security
+                    </div>
+                    <div class="skill-list">
+                        NIST • OWASP Top 10 • Wireshark • Firewalls • VPNs • Penetration Testing • JWT/OAuth2 • IAM
+                    </div>
+                </div>
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-robot"></i>
+                        AI & Automation
+                    </div>
+                    <div class="skill-list">
+                        LLM Training & Evaluation • n8n Workflows • Python Scripting • Prompt Engineering
+                    </div>
+                </div>
 
-    document.querySelectorAll('.post').forEach(post => {
-        post.style.opacity = '0';
-        post.style.transform = 'translateY(20px)';
-        post.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(post);
-    });
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-chart-bar"></i>
+                        Data & BI
+                    </div>
+                    <div class="skill-list">
+                        Power BI • ETL • Data Modelling • Google Analytics
+                    </div>
+                </div>
 
-    setTimeout(() => {
-        document.querySelectorAll('.post').forEach((post, index) => {
-            setTimeout(() => {
-                post.style.opacity = '1';
-                post.style.transform = 'translateY(0)';
-            }, index * 100);
-        });
-    }, 100);
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-rotate"></i>
+                        Methodologies
+                    </div>
+                    <div class="skill-list">
+                        Agile/Scrum (IBM & Google certified) • RESTful API Design • TDD • Prompt Engineering
+                    </div>
+                </div>
 
-});
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fa-solid fa-brain"></i>
+                        Soft Skills
+                    </div>
+                    <div class="skill-list">
+                        Risk Communication • Analytical Thinking • Attention to Detail • Emotional Intelligence (UCD certified)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects" class="content-section">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="project-careernest.jpg" alt="CareerNest" class="project-image">
+                        <div class="project-info">
+                            <div class="project-title">🏆 CareerNest — FNB App of the Year Top 10</div>
+                            <div class="project-desc">
+                                Cross-platform mobile career platform for mentorship booking, job discovery, and CV tools.<br><br>
+                                • Firebase Auth + email verification<br>
+                                • MoMo API for secure in-app payments<br>
+                                • Deployed on AWS (EC2, S3, RDS)<br>
+                                • Offline support via Service Workers<br>
+                                • OWASP-aligned secure API design
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="project-pipeline.jpg" alt="Pipeline" class="project-image">
+                        <div class="project-info">
+                            <div class="project-title">🦾 Supplier Invoice Ingest Pipeline</div>
+                            <div class="project-desc">
+                                Production-grade automation ingesting supplier CSV invoices from Gmail & Google Drive.<br><br>
+                                • SHA-256 idempotency & integrity verification<br>
+                                • Row-wise validation (4 business rules)<br>
+                                • OAuth2 authentication (no plaintext creds)<br>
+                                • Execution ID traceability<br>
+                                • Automated HTML email alerts
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">n8n</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Gmail OAuth2</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="project-cinema.jpg" alt="Cinema Map" class="project-image">
+                        <div class="project-info">
+                            <div class="project-title">🗺️ Cinema Map App — Datacom Simulation</div>
+                            <div class="project-desc">
+                                • Fixed 4 critical bugs in existing codebase<br>
+                                • Proposed & implemented 5 new features<br>
+                                • Location-based search with REST APIs<br>
+                                • Secure coding practices & error boundaries
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Web Mapping</span>
+                                <span class="tech-tag">REST APIs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="project-odyssey.jpg" alt="Odyssey" class="project-image">
+                        <div class="project-info">
+                            <div class="project-title">🤰 Odyssey — Pregnancy & Child Tracker</div>
+                            <div class="project-desc">
+                                Cross-platform mobile app with personalized milestone tracking and reminders.
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">Serverpod</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Section -->
+            <div id="certifications" class="content-section">
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <div class="cert-icon" style="color: #4285f4;">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Google Certifications</h4>
+                            <p>Google Cybersecurity Professional Certificate<br>
+                            Automate Cybersecurity Tasks with Python<br>
+                            Google IT Automation with Python<br>
+                            Using Python to Interact with the OS</p>
+                        </div>
+                        <i class="fa-solid fa-circle-check cert-check"></i>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-icon" style="color: #ff6b35; background: rgba(255, 107, 53, 0.1);">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>TryHackMe</h4>
+                            <p>Cyber Security 101 Certificate<br>
+                            Pre Security Certificate<br><br>
+                            Hands-on labs in network security, web exploitation, and Linux fundamentals.</p>
+                        </div>
+                        <i class="fa-solid fa-circle-check cert-check"></i>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-icon" style="color: #00d4aa;">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Forage Security Simulations (7x)</h4>
+                            <p>AIG Shields Up Cybersecurity<br>
+                            Mastercard Cybersecurity<br>
+                            Deloitte Australia Cyber<br>
+                            Commonwealth Bank Cybersecurity<br>
+                            Datacom Cybersecurity<br>
+                            Tata Cybersecurity Analyst</p>
+                        </div>
+                        <i class="fa-solid fa-circle-check cert-check"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search">
+            </div>
+
+            <div class="trending">
+                <h3>Trending Skills</h3>
+
+                <div class="trending-item">
+                    <div class="trending-category">Languages</div>
+                    <div class="trending-topic">#JavaScript</div>
+                    <div class="trending-count">7 projects</div>
+                </div>
+
+                <div class="trending-item">
+                    <div class="trending-category">Languages</div>
+                    <div class="trending-topic">#Python</div>
+                    <div class="trending-count">5 projects</div>
+                </div>
+
+                <div class="trending-item">
+                    <div class="trending-category">Frameworks</div>
+                    <div class="trending-topic">#React</div>
+                    <div class="trending-count">4 projects</div>
+                </div>
+
+                <div class="trending-item">
+                    <div class="trending-category">Cloud</div>
+                    <div class="trending-topic">#AWS</div>
+                    <div class="trending-count">3 projects</div>
+                </div>
+
+                <div class="trending-item">
+                    <div class="trending-category">Security</div>
+                    <div class="trending-topic">#OWASP</div>
+                    <div class="trending-count">6 certs</div>
+                </div>
+
+                <div class="trending-item">
+                    <div class="trending-category">AI</div>
+                    <div class="trending-topic">#LLMTraining</div>
+                    <div class="trending-count">2 projects</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Contact Me</h3>
+                <button class="modal-close" onclick="closeContactModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-field">
+                    <label>Name</label>
+                    <input type="text" id="contactName" placeholder="Your name">
+                </div>
+                <div class="modal-field">
+                    <label>Subject</label>
+                    <input type="text" id="contactSubject" placeholder="What is this about?">
+                </div>
+                <div class="modal-field">
+                    <label>Message</label>
+                    <textarea id="contactMessage" placeholder="Write your message..." rows="5"></textarea>
+                </div>
+                <button class="modal-send" onclick="sendContactEmail()">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: "5oGF5Od0T-z8OE2ow" });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
