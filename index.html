@@ -20,9 +20,9 @@
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span>
                 </div>
-                <div class="nav-item" onclick="showTab('cv')">
-                    <i class="fa-regular fa-file-lines"></i>
-                    <span>My CV</span>
+                <div class="nav-item" onclick="openAboutModal()">
+                    <i class="fa-regular fa-user"></i>
+                    <span>About Me</span>
                 </div>
                 <a href="#" onclick="openContactModal(); return false;" class="nav-item">
                     <i class="fa-regular fa-envelope"></i>
@@ -654,6 +654,82 @@
         </a>
     </nav>
 
+    <!-- About Me Modal -->
+    <div id="aboutModal" class="modal-overlay">
+        <div class="modal about-modal">
+            <div class="modal-header">
+                <h3>About Me</h3>
+                <button class="modal-close" onclick="closeAboutModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="about-modal-body">
+                <div class="about-hero">
+                    <img src="IMG-20260310-WA0004.jpg" alt="Katlego" class="about-avatar">
+                    <div class="about-hero-info">
+                        <h2>Katlego Seiphemo</h2>
+                        <p>Software Engineer · Full-Stack Developer · AI & Cloud</p>
+                        <span><i class="fa-solid fa-location-dot"></i> Johannesburg, SA</span>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h4><i class="fa-solid fa-user"></i> Who I Am</h4>
+                    <p>Highly motivated Software Engineer and Full-Stack Developer with hands-on experience building and deploying scalable applications using modern cloud technologies and AI/Automation workflows. I am passionate about creating secure, impactful solutions that solve real problems.</p>
+                </div>
+
+                <div class="about-section">
+                    <h4><i class="fa-solid fa-trophy"></i> Highlight</h4>
+                    <p>My career platform <strong>CareerNest</strong> was selected as a <strong>Top 10 Finalist</strong> in the FNB App of the Year 2025 — a cross-platform app built for mentorship, job discovery, and CV tools for students and job seekers across South Africa.</p>
+                </div>
+
+                <div class="about-section">
+                    <h4><i class="fa-solid fa-briefcase"></i> Experience</h4>
+                    <div class="about-exp-item">
+                        <div class="about-exp-title">AI Contributor — Alignerr AI</div>
+                        <div class="about-exp-date">Sep 2025 – Dec 2025 · Remote</div>
+                        <div class="about-exp-desc">Evaluated LLM outputs for accuracy, consistency, and ethical alignment. Contributed to high-quality AI training datasets for model refinement.</div>
+                    </div>
+                    <div class="about-exp-item">
+                        <div class="about-exp-title">Customer Service Agent — Merchants SA</div>
+                        <div class="about-exp-date">Jan 2023 – May 2023 · Randburg</div>
+                        <div class="about-exp-desc">Managed high-volume customer queries in a fast-paced contact centre, consistently exceeding performance targets.</div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h4><i class="fa-solid fa-graduation-cap"></i> Education</h4>
+                    <div class="about-exp-item">
+                        <div class="about-exp-title">Full Stack AI Engineering — ZAIO Institute</div>
+                        <div class="about-exp-date">Jan 2026 – Ongoing · Remote</div>
+                        <div class="about-exp-desc">Python, ML fundamentals, ethical AI, and scalable cloud deployments.</div>
+                    </div>
+                    <div class="about-exp-item">
+                        <div class="about-exp-title">Diploma in Software Engineering — WeThinkCode_</div>
+                        <div class="about-exp-date">Feb 2025 – May 2026 · Parktown</div>
+                        <div class="about-exp-desc">Full-stack development, Python, Java, React, REST APIs, and cross-platform mobile development.</div>
+                    </div>
+                    <div class="about-exp-item">
+                        <div class="about-exp-title">National Senior Certificate — Westridge High School</div>
+                        <div class="about-exp-date">2014 – 2018 · Roodeport</div>
+                    </div>
+                </div>
+
+                <div class="about-links">
+                    <a href="https://github.com/KatlegoSeiphemo" target="_blank" class="about-link-btn">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/katlego-seiphemo-819779328/" target="_blank" class="about-link-btn">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="katlego-cv.pdf" download class="about-link-btn">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Modal -->
     <div id="contactModal" class="modal-overlay">
         <div class="modal">
@@ -690,4 +766,4 @@
     </script>
     <script src="script.js"></script>
 </body>
-</html>
+</html
