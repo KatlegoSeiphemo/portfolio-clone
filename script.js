@@ -156,3 +156,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 
 });
+
+// ===== DARK / LIGHT MODE =====
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+    const isLight = body.classList.toggle('light-mode');
+
+    if (isLight) {
+        icon.className = 'fa-solid fa-sun';
+        localStorage.setItem('theme', 'light');
+    } else {
+        icon.className = 'fa-solid fa-moon';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Apply saved theme on load
+document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+        document.body.classList.add('light-mode');
+        const icon = document.getElementById('themeIcon');
+        if (icon) icon.className = 'fa-solid fa-sun';
+    }
+});
+
+// ===== VISITOR COUNTER =====
+// Uses countapi.xyz — free, no signup needed
+async function loadVisitorCount() {
+    try {
+        // Increment count on each visit
+        const res = await fetch('https://api.countapi.xyz/hit/katlego-portfolio/visits');
+        const data = await res.json();
+        const el = document.getElementById('visitorCount');
+        if (el && data.value) {
+            // Animate the number counting up
+            let start = 0;
+            const end = data.value;
+            const duration = 1000;
+            const step = Math.ceil(end / (duration / 16));
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= end) {
+                    start = end;
+                    clearInterval(timer);
+                }
+                el.textContent = start.toLocaleString();
+            }, 16);
+        }
+    } catch (e) {
+        const el = document.getElementById('visitorCount');
+        if (el) el.textContent = '—';
+    }
+}
+
+loadVisitorCount();
