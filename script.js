@@ -143,3 +143,34 @@ setTimeout(() => {
         }, index * 100);
     });
 }, 100);
+
+// Contact Modal
+function openContactModal() {
+    document.getElementById('contactModal').classList.add('active');
+}
+
+function closeContactModal() {
+    document.getElementById('contactModal').classList.remove('active');
+}
+
+// Close modal when clicking outside
+document.getElementById('contactModal').addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+
+// Send email via mailto
+function sendContactEmail() {
+    const name = document.getElementById('contactName').value.trim();
+    const subject = document.getElementById('contactSubject').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!name || !subject || !message) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    const body = `Name: ${name}\n\n${message}`;
+    const mailtoLink = `mailto:katlegoseiphemo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    closeContactModal();
+}
